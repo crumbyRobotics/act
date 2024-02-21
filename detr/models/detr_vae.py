@@ -227,10 +227,7 @@ def build_encoder(args):
     return encoder
 
 
-def build(args):
-    state_dim = 14  # TODO hardcode
-    action_dim = 14
-
+def build(args, state_dim=14, action_dim=14):
     # From state
     # backbone = None # from state for now, no need for conv nets
     # From image
