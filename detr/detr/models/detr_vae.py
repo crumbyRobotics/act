@@ -5,8 +5,8 @@ DETR model and criterion classes.
 import torch
 from torch import nn
 from torch.autograd import Variable
-from .backbone import build_backbone
-from .transformer import build_transformer, TransformerEncoder, TransformerEncoderLayer
+from detr.models.backbone import build_backbone
+from detr.models.transformer import build_transformer, TransformerEncoder, TransformerEncoderLayer
 
 import numpy as np
 
