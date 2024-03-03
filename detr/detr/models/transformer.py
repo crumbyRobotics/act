@@ -70,6 +70,7 @@ class Transformer(nn.Module):
             additional_pos_embed = additional_pos_embed.unsqueeze(1).repeat(1, bs, 1)  # seq, bs, dim
             pos_embed = torch.cat([additional_pos_embed, pos_embed], axis=0)
             src = torch.cat([addition_input, src], axis=0)
+            mask = torch.cat([torch.zeros(addition_input.permute(1, 0, 2).shape[:2], dtype=torch.bool, device=mask.device), mask], dim=1)  # bs, seq
 
         tgt = torch.zeros_like(query_embed)
         memory = self.encoder(src, src_key_padding_mask=mask, pos=pos_embed)
